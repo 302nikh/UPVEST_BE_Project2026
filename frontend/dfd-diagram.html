@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UPVEST Platform - Data Flow Diagram</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f5f5;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+            font-size: 28px;
+        }
+
+        .legend {
+            position: absolute;
+            top: 80px;
+            left: 60px;
+            background: white;
+            border: 2px solid #333;
+            padding: 15px;
+            border-radius: 6px;
+            font-size: 13px;
+            z-index: 100;
+        }
+
+        .legend-title {
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .legend-item {
+            margin: 4px 0;
+        }
+
+        #diagram {
+            width: 100%;
+            height: 900px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            position: relative;
+        }
+
+        .box {
+            position: absolute;
+            border: 2px solid #333;
+            border-radius: 6px;
+            padding: 12px;
+            font-size: 13px;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+
+        .box:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .external {
+            background: #e8e8e8;
+            color: #333;
+        }
+
+        .process {
+            background: white;
+            color: #333;
+        }
+
+        .datasource {
+            background: #e6f3ff;
+            border-width: 3px;
+            color: #333;
+        }
+
+        .box-title {
+            font-weight: bold;
+            margin-bottom: 6px;
+            font-size: 14px;
+        }
+
+        .box-desc {
+            font-size: 12px;
+            line-height: 1.4;
+            color: #555;
+        }
+
+        .arrow {
+            position: absolute;
+            stroke: #333;
+            stroke-width: 2;
+            fill: none;
+            marker-end: url(#arrowhead);
+            z-index: 1;
+        }
+
+        .caption {
+            text-align: center;
+            margin-top: 20px;
+            font-style: italic;
+            color: #666;
+            font-size: 14px;
+        }
+
+        .download-btn {
+            display: block;
+            width: 200px;
+            margin: 20px auto;
+            padding: 12px 24px;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .download-btn:hover {
+            background: #5568d3;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>UPVEST Platform - Data Flow Diagram</h1>
+
+        <button class="download-btn" onclick="downloadDiagram()">📥 Download as PNG</button>
+
+        <div id="diagram">
+            <div class="legend">
+                <div class="legend-title">Legend:</div>
+                <div class="legend-item"><strong>E:</strong> External Entities</div>
+                <div class="legend-item"><strong>P:</strong> Processes</div>
+                <div class="legend-item"><strong>D:</strong> Data Sources</div>
+            </div>
+
+            <!-- SVG for arrows -->
+            <svg width="100%" height="100%" style="position: absolute; top: 0; left: 0; pointer-events: none;">
+                <defs>
+                    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                        <polygon points="0 0, 10 3, 0 6" fill="#333" />
+                    </marker>
+                </defs>
+                <!-- Arrows will be drawn by JavaScript -->
+            </svg>
+
+            <!-- E1: User Input -->
+            <div class="box external" style="width: 200px; top: 20px; left: 450px;">
+                <div class="box-title">E1: User Input Data</div>
+                <div class="box-desc">Financial goals, risk profile, investment preferences</div>
+            </div>
+
+            <!-- P1: Authentication -->
+            <div class="box process" style="width: 220px; top: 120px; left: 440px;">
+                <div class="box-title">P1: Authentication</div>
+                <div class="box-desc">Login/signup, session management, validation</div>
+            </div>
+
+            <!-- Layer 2: 4 processes -->
+            <div class="box process" style="width: 180px; top: 220px; left: 50px;">
+                <div class="box-title">P2: Financial Planning</div>
+                <div class="box-desc">AI plan generation with Gemini</div>
+            </div>
+
+            <div class="box process" style="width: 180px; top: 220px; left: 260px;">
+                <div class="box-title">P3: Learning Module</div>
+                <div class="box-desc">Educational content, quizzes</div>
+            </div>
+
+            <div class="box process" style="width: 180px; top: 220px; left: 470px;">
+                <div class="box-title">P4: AI Agent</div>
+                <div class="box-desc">Real-time investment assistant</div>
+            </div>
+
+            <div class="box process" style="width: 180px; top: 220px; left: 680px;">
+                <div class="box-title">P5: DEMAT Integration</div>
+                <div class="box-desc">Upstox API account linking</div>
+            </div>
+
+            <!-- P6: Data Processing -->
+            <div class="box process" style="width: 240px; top: 360px; left: 420px;">
+                <div class="box-title">P6: Data Processing</div>
+                <div class="box-desc">Centralizes data, generates insights</div>
+            </div>
+
+            <!-- E3: Dashboard -->
+            <div class="box external" style="width: 180px; top: 360px; left: 900px;">
+                <div class="box-title">E3: Dashboard</div>
+                <div class="box-desc">Real-time UI, Portfolio view</div>
+            </div>
+
+            <!-- Layer 4: 3 processes -->
+            <div class="box process" style="width: 180px; top: 500px; left: 150px;">
+                <div class="box-title">P7: Portfolio Analytics</div>
+                <div class="box-desc">Performance tracking, risk analysis</div>
+            </div>
+
+            <div class="box process" style="width: 180px; top: 500px; left: 440px;">
+                <div class="box-title">P8: Help Desk</div>
+                <div class="box-desc">AI-powered support</div>
+            </div>
+
+            <div class="box process" style="width: 180px; top: 500px; left: 730px;">
+                <div class="box-title">P9: Quiz Assessment</div>
+                <div class="box-desc">Knowledge tests, certification</div>
+            </div>
+
+            <!-- D1: LocalStorage -->
+            <div class="box datasource" style="width: 280px; top: 640px; left: 380px;">
+                <div class="box-title">D1: LocalStorage Database</div>
+                <div class="box-desc">User sessions, plans, progress, DEMAT data</div>
+            </div>
+
+            <!-- E2: Gemini API -->
+            <div class="box external" style="width: 200px; top: 770px; left: 430px;">
+                <div class="box-title">E2: Gemini AI API</div>
+                <div class="box-desc">External AI service for plan generation</div>
+            </div>
+        </div>
+
+        <div class="caption">Fig: UPVEST Platform - Data Flow Diagram</div>
+    </div>
+
+    <script>
+        // Draw arrows between boxes
+        function drawArrow(x1, y1, x2, y2) {
+            const svg = document.querySelector('svg');
+            const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+            line.setAttribute('x1', x1);
+            line.setAttribute('y1', y1);
+            line.setAttribute('x2', x2);
+            line.setAttribute('y2', y2);
+            line.setAttribute('class', 'arrow');
+            svg.appendChild(line);
+        }
+
+        // Draw all arrows when page loads
+        window.onload = function () {
+            // E1 to P1
+            drawArrow(550, 90, 550, 120);
+
+            // P1 to P2, P3, P4, P5
+            drawArrow(550, 190, 140, 220);
+            drawArrow(550, 190, 350, 220);
+            drawArrow(550, 190, 560, 220);
+            drawArrow(550, 190, 770, 220);
+
+            // P2, P3, P4, P5 to P6
+            drawArrow(140, 305, 480, 360);
+            drawArrow(350, 305, 520, 360);
+            drawArrow(560, 305, 540, 360);
+            drawArrow(770, 305, 580, 360);
+
+            // P6 to E3
+            drawArrow(660, 400, 900, 400);
+
+            // P6 to P7, P8, P9
+            drawArrow(540, 445, 240, 500);
+            drawArrow(540, 445, 530, 500);
+            drawArrow(540, 445, 820, 500);
+
+            // P7, P8, P9 to D1
+            drawArrow(240, 580, 460, 640);
+            drawArrow(530, 580, 520, 640);
+            drawArrow(820, 580, 580, 640);
+
+            // D1 to E2
+            drawArrow(520, 715, 530, 770);
+        };
+
+        // Download diagram as PNG
+        function downloadDiagram() {
+            const diagram = document.getElementById('diagram');
+
+            // Use html2canvas library (we'll add it dynamically)
+            const script = document.createElement('script');
+            script.src = 'https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js';
+            script.onload = function () {
+                html2canvas(diagram, {
+                    backgroundColor: '#ffffff',
+                    scale: 2
+                }).then(canvas => {
+                    const link = document.createElement('a');
+                    link.download = 'upvest-dfd-diagram.png';
+                    link.href = canvas.toDataURL();
+                    link.click();
+                });
+            };
+            document.head.appendChild(script);
+        }
+    </script>
+</body>
+
+</html>

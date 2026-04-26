@@ -1,0 +1,571 @@
+{
+  "cash": 4209.479721874998,
+  "positions": {
+    "NSE_EQ|INE155A01022": {
+      "qty": 31,
+      "avg_price": 351.625725,
+      "current_price": 351.625725,
+      "stock_name": "ASIANPAINT"
+    },
+    "NSE_EQ|INE758T01015": {
+      "qty": 39,
+      "avg_price": 259.4796750000001,
+      "current_price": 259.47967500000004,
+      "stock_name": "ADANIGREEN"
+    },
+    "NSE_EQ|INE081A01020": {
+      "qty": 43,
+      "avg_price": 210.60525,
+      "current_price": 210.60525,
+      "stock_name": "TATASTEEL"
+    },
+    "NSE_EQ|INE242A01010": {
+      "qty": 56,
+      "avg_price": 145.65279,
+      "current_price": 145.65279,
+      "stock_name": "BPCL"
+    },
+    "NSE_EQ|INE129A01019": {
+      "qty": 45,
+      "avg_price": 164.732325,
+      "current_price": 164.732325,
+      "stock_name": "GAIL"
+    },
+    "NSE_EQ|INE752E01010": {
+      "qty": 21,
+      "avg_price": 318.45915,
+      "current_price": 318.45915,
+      "stock_name": "POWERGRID"
+    },
+    "NSE_EQ|INE115A01026": {
+      "qty": 10,
+      "avg_price": 546.1229249999999,
+      "current_price": 546.122925,
+      "stock_name": "COALINDIA"
+    },
+    "NSE_EQ|INE018E01016": {
+      "qty": 7,
+      "avg_price": 682.3410000000001,
+      "current_price": 682.341,
+      "stock_name": "HCLTECH"
+    },
+    "NSE_EQ|INE683A01023": {
+      "qty": 129,
+      "avg_price": 39.299640000000004,
+      "current_price": 39.299640000000004,
+      "stock_name": "TECHM"
+    },
+    "NSE_EQ|INE503A01015": {
+      "qty": 24,
+      "avg_price": 192.10600499999998,
+      "current_price": 192.10600499999998,
+      "stock_name": "ULTRACEMCO"
+    },
+    "NSE_EQ|INE148I01020": {
+      "qty": 27,
+      "avg_price": 144.302115,
+      "current_price": 144.302115,
+      "stock_name": "INDUSINDBK"
+    },
+    "NSE_EQ|INE092T01019": {
+      "qty": 55,
+      "avg_price": 67.903935,
+      "current_price": 67.903935,
+      "stock_name": "BHARTIARTL"
+    },
+    "NSE_EQ|INE028A01039": {
+      "qty": 12,
+      "avg_price": 276.138,
+      "current_price": 276.138,
+      "stock_name": "BANKBARODA"
+    },
+    "NSE_EQ|INE726G01019": {
+      "qty": 4,
+      "avg_price": 534.417075,
+      "current_price": 534.417075,
+      "stock_name": "SBILIFE"
+    },
+    "NSE_EQ|INE491A01021": {
+      "qty": 9,
+      "avg_price": 265.83285,
+      "current_price": 265.83285,
+      "stock_name": "EICHERMOT"
+    },
+    "NSE_EQ|INE029A01011": {
+      "qty": 7,
+      "avg_price": 311.15549999999996,
+      "current_price": 311.1555,
+      "stock_name": "APOLLOHOSP"
+    },
+    "NSE_EQ|INE256A01028": {
+      "qty": 26,
+      "avg_price": 91.49572500000001,
+      "current_price": 91.49572500000001,
+      "stock_name": "ZOMATO"
+    }
+  },
+  "trade_history": [
+    {
+      "timestamp": "2026-02-10T11:56:33.783452",
+      "symbol": "NSE_INDEX|Nifty 50",
+      "stock_name": "NIFTY50",
+      "side": "BUY",
+      "qty": 1,
+      "price": 23500.0,
+      "cost": 23500.0,
+      "balance_after": 76500.0
+    },
+    {
+      "timestamp": "2026-02-10T11:56:33.783452",
+      "symbol": "NSE_INDEX|Nifty 50",
+      "stock_name": "NIFTY50",
+      "side": "SELL",
+      "qty": 1,
+      "price": 23550.0,
+      "proceeds": 23550.0,
+      "pnl": 50.0,
+      "balance_after": 100050.0
+    },
+    {
+      "timestamp": "2026-02-10T12:04:41.248253",
+      "symbol": "NSE_INDEX|Nifty 50",
+      "stock_name": "NIFTY50",
+      "side": "BUY",
+      "qty": 1,
+      "price": 25961.900390625,
+      "cost": 25961.900390625,
+      "balance_after": 74088.099609375
+    },
+    {
+      "timestamp": "2026-02-10T12:09:41.589661",
+      "symbol": "NSE_INDEX|Nifty 50",
+      "stock_name": "NIFTY50",
+      "side": "BUY",
+      "qty": 1,
+      "price": 25953.25,
+      "cost": 25953.25,
+      "balance_after": 48134.849609375
+    },
+    {
+      "timestamp": "2026-02-10T12:19:57.907708",
+      "symbol": "NSE_INDEX|Nifty 50",
+      "stock_name": "NIFTY50",
+      "side": "BUY",
+      "qty": 1,
+      "price": 25967.0,
+      "cost": 25967.0,
+      "balance_after": 22167.849609375
+    },
+    {
+      "timestamp": "2026-02-11T09:24:53.317981",
+      "symbol": "NSE_INDEX|Nifty 50",
+      "stock_name": "NIFTY50",
+      "side": "SELL",
+      "qty": 1,
+      "price": 25981.400390625,
+      "proceeds": 25981.400390625,
+      "pnl": 20.68359375,
+      "balance_after": 48149.25
+    },
+    {
+      "timestamp": "2026-02-11T10:00:41.344804",
+      "symbol": "NSE_INDEX|Nifty 50",
+      "stock_name": "NIFTY50",
+      "side": "SELL",
+      "qty": 1,
+      "price": 25932.55078125,
+      "proceeds": 25932.55078125,
+      "pnl": -28.166015625,
+      "balance_after": 74081.80078125
+    },
+    {
+      "timestamp": "2026-02-11T10:05:46.504345",
+      "symbol": "NSE_INDEX|Nifty 50",
+      "stock_name": "NIFTY50",
+      "side": "SELL",
+      "qty": 1,
+      "price": 25920.30078125,
+      "proceeds": 25920.30078125,
+      "pnl": -40.416015625,
+      "balance_after": 100002.1015625
+    },
+    {
+      "timestamp": "2026-02-11T10:10:52.637356",
+      "symbol": "NSE_INDEX|Nifty 50",
+      "stock_name": "NIFTY50",
+      "side": "BUY",
+      "qty": 1,
+      "price": 25933.849609375,
+      "cost": 25933.849609375,
+      "balance_after": 74068.251953125
+    },
+    {
+      "timestamp": "2026-02-11T10:15:58.589139",
+      "symbol": "NSE_INDEX|Nifty 50",
+      "stock_name": "NIFTY50",
+      "side": "BUY",
+      "qty": 1,
+      "price": 25925.55078125,
+      "cost": 25925.55078125,
+      "balance_after": 48142.701171875
+    },
+    {
+      "timestamp": "2026-02-11T10:21:02.758712",
+      "symbol": "NSE_INDEX|Nifty 50",
+      "stock_name": "NIFTY50",
+      "side": "BUY",
+      "qty": 1,
+      "price": 25953.55078125,
+      "cost": 25953.55078125,
+      "balance_after": 22189.150390625
+    },
+    {
+      "timestamp": "2026-03-02T12:07:37.836180",
+      "symbol": "NSE_INDEX|Nifty 50",
+      "stock_name": "NIFTY50",
+      "side": "SELL",
+      "qty": 3,
+      "price": 24767.69921875,
+      "proceeds": 74303.09765625,
+      "pnl": -3509.853515625,
+      "balance_after": 96492.248046875
+    },
+    {
+      "timestamp": "2026-04-24T11:00:10.988982",
+      "symbol": "NSE_EQ|INE155A01022",
+      "stock_name": "ASIANPAINT",
+      "side": "BUY",
+      "qty": 27,
+      "price": 351.625725,
+      "cost": 9493.894575,
+      "balance_after": 86998.353471875
+    },
+    {
+      "timestamp": "2026-04-24T11:00:16.584715",
+      "symbol": "NSE_EQ|INE758T01015",
+      "stock_name": "ADANIGREEN",
+      "side": "BUY",
+      "qty": 33,
+      "price": 259.47967500000004,
+      "cost": 8562.829275000002,
+      "balance_after": 78435.524196875
+    },
+    {
+      "timestamp": "2026-04-24T11:00:23.322186",
+      "symbol": "NSE_EQ|INE081A01020",
+      "stock_name": "TATASTEEL",
+      "side": "BUY",
+      "qty": 37,
+      "price": 210.60525,
+      "cost": 7792.39425,
+      "balance_after": 70643.12994687501
+    },
+    {
+      "timestamp": "2026-04-24T11:00:34.996417",
+      "symbol": "NSE_EQ|INE242A01010",
+      "stock_name": "BPCL",
+      "side": "BUY",
+      "qty": 48,
+      "price": 145.65279,
+      "cost": 6991.333920000001,
+      "balance_after": 63651.796026875
+    },
+    {
+      "timestamp": "2026-04-24T11:00:36.692640",
+      "symbol": "NSE_EQ|INE129A01019",
+      "stock_name": "GAIL",
+      "side": "BUY",
+      "qty": 38,
+      "price": 164.732325,
+      "cost": 6259.82835,
+      "balance_after": 57391.96767687501
+    },
+    {
+      "timestamp": "2026-04-24T11:00:38.306660",
+      "symbol": "NSE_EQ|INE752E01010",
+      "stock_name": "POWERGRID",
+      "side": "BUY",
+      "qty": 18,
+      "price": 318.45915,
+      "cost": 5732.264700000001,
+      "balance_after": 51659.70297687501
+    },
+    {
+      "timestamp": "2026-04-24T11:00:40.989067",
+      "symbol": "NSE_EQ|INE115A01026",
+      "stock_name": "COALINDIA",
+      "side": "BUY",
+      "qty": 9,
+      "price": 546.122925,
+      "cost": 4915.106325,
+      "balance_after": 46744.59665187501
+    },
+    {
+      "timestamp": "2026-04-24T11:00:44.232456",
+      "symbol": "NSE_EQ|INE018E01016",
+      "stock_name": "HCLTECH",
+      "side": "BUY",
+      "qty": 6,
+      "price": 682.341,
+      "cost": 4094.0460000000003,
+      "balance_after": 42650.550651875004
+    },
+    {
+      "timestamp": "2026-04-24T11:00:45.952899",
+      "symbol": "NSE_EQ|INE683A01023",
+      "stock_name": "TECHM",
+      "side": "BUY",
+      "qty": 108,
+      "price": 39.299640000000004,
+      "cost": 4244.3611200000005,
+      "balance_after": 38406.189531875
+    },
+    {
+      "timestamp": "2026-04-24T11:00:47.596284",
+      "symbol": "NSE_EQ|INE503A01015",
+      "stock_name": "ULTRACEMCO",
+      "side": "BUY",
+      "qty": 20,
+      "price": 192.10600499999998,
+      "cost": 3842.1200999999996,
+      "balance_after": 34564.069431875
+    },
+    {
+      "timestamp": "2026-04-24T11:00:49.942291",
+      "symbol": "NSE_EQ|INE148I01020",
+      "stock_name": "INDUSINDBK",
+      "side": "BUY",
+      "qty": 23,
+      "price": 144.302115,
+      "cost": 3318.9486449999995,
+      "balance_after": 31245.120786875003
+    },
+    {
+      "timestamp": "2026-04-24T11:00:51.570206",
+      "symbol": "NSE_EQ|INE092T01019",
+      "stock_name": "BHARTIARTL",
+      "side": "BUY",
+      "qty": 46,
+      "price": 67.903935,
+      "cost": 3123.5810100000003,
+      "balance_after": 28121.539776875
+    },
+    {
+      "timestamp": "2026-04-24T11:00:54.308685",
+      "symbol": "NSE_EQ|INE028A01039",
+      "stock_name": "BANKBARODA",
+      "side": "BUY",
+      "qty": 10,
+      "price": 276.138,
+      "cost": 2761.3799999999997,
+      "balance_after": 25360.159776875
+    },
+    {
+      "timestamp": "2026-04-24T11:00:56.550917",
+      "symbol": "NSE_EQ|INE726G01019",
+      "stock_name": "SBILIFE",
+      "side": "BUY",
+      "qty": 4,
+      "price": 534.417075,
+      "cost": 2137.6683,
+      "balance_after": 23222.491476875
+    },
+    {
+      "timestamp": "2026-04-24T11:00:58.180280",
+      "symbol": "NSE_EQ|INE491A01021",
+      "stock_name": "EICHERMOT",
+      "side": "BUY",
+      "qty": 8,
+      "price": 265.83285,
+      "cost": 2126.6628,
+      "balance_after": 21095.828676874997
+    },
+    {
+      "timestamp": "2026-04-24T11:01:00.825698",
+      "symbol": "NSE_EQ|INE029A01011",
+      "stock_name": "APOLLOHOSP",
+      "side": "BUY",
+      "qty": 6,
+      "price": 311.1555,
+      "cost": 1866.933,
+      "balance_after": 19228.895676874996
+    },
+    {
+      "timestamp": "2026-04-24T11:01:02.578634",
+      "symbol": "NSE_EQ|INE256A01028",
+      "stock_name": "ZOMATO",
+      "side": "BUY",
+      "qty": 21,
+      "price": 91.49572500000001,
+      "cost": 1921.410225,
+      "balance_after": 17307.485451874996
+    },
+    {
+      "timestamp": "2026-04-24T11:06:44.396349",
+      "symbol": "NSE_EQ|INE155A01022",
+      "stock_name": "ASIANPAINT",
+      "side": "BUY",
+      "qty": 4,
+      "price": 351.625725,
+      "cost": 1406.5029,
+      "balance_after": 15900.982551874997
+    },
+    {
+      "timestamp": "2026-04-24T11:06:55.452230",
+      "symbol": "NSE_EQ|INE758T01015",
+      "stock_name": "ADANIGREEN",
+      "side": "BUY",
+      "qty": 6,
+      "price": 259.47967500000004,
+      "cost": 1556.8780500000003,
+      "balance_after": 14344.104501874997
+    },
+    {
+      "timestamp": "2026-04-24T11:07:01.877773",
+      "symbol": "NSE_EQ|INE081A01020",
+      "stock_name": "TATASTEEL",
+      "side": "BUY",
+      "qty": 6,
+      "price": 210.60525,
+      "cost": 1263.6315,
+      "balance_after": 13080.473001874998
+    },
+    {
+      "timestamp": "2026-04-24T11:07:41.911414",
+      "symbol": "NSE_EQ|INE242A01010",
+      "stock_name": "BPCL",
+      "side": "BUY",
+      "qty": 8,
+      "price": 145.65279,
+      "cost": 1165.22232,
+      "balance_after": 11915.250681874997
+    },
+    {
+      "timestamp": "2026-04-24T11:07:48.552865",
+      "symbol": "NSE_EQ|INE129A01019",
+      "stock_name": "GAIL",
+      "side": "BUY",
+      "qty": 7,
+      "price": 164.732325,
+      "cost": 1153.126275,
+      "balance_after": 10762.124406874997
+    },
+    {
+      "timestamp": "2026-04-24T11:07:52.578607",
+      "symbol": "NSE_EQ|INE752E01010",
+      "stock_name": "POWERGRID",
+      "side": "BUY",
+      "qty": 3,
+      "price": 318.45915,
+      "cost": 955.3774500000001,
+      "balance_after": 9806.746956874997
+    },
+    {
+      "timestamp": "2026-04-24T11:08:02.486076",
+      "symbol": "NSE_EQ|INE115A01026",
+      "stock_name": "COALINDIA",
+      "side": "BUY",
+      "qty": 1,
+      "price": 546.122925,
+      "cost": 546.122925,
+      "balance_after": 9260.624031874997
+    },
+    {
+      "timestamp": "2026-04-24T11:08:08.492925",
+      "symbol": "NSE_EQ|INE018E01016",
+      "stock_name": "HCLTECH",
+      "side": "BUY",
+      "qty": 1,
+      "price": 682.341,
+      "cost": 682.341,
+      "balance_after": 8578.283031874997
+    },
+    {
+      "timestamp": "2026-04-24T11:08:10.387142",
+      "symbol": "NSE_EQ|INE683A01023",
+      "stock_name": "TECHM",
+      "side": "BUY",
+      "qty": 21,
+      "price": 39.299640000000004,
+      "cost": 825.29244,
+      "balance_after": 7752.990591874996
+    },
+    {
+      "timestamp": "2026-04-24T11:08:12.096901",
+      "symbol": "NSE_EQ|INE503A01015",
+      "stock_name": "ULTRACEMCO",
+      "side": "BUY",
+      "qty": 4,
+      "price": 192.10600499999998,
+      "cost": 768.4240199999999,
+      "balance_after": 6984.566571874997
+    },
+    {
+      "timestamp": "2026-04-24T11:08:26.372085",
+      "symbol": "NSE_EQ|INE148I01020",
+      "stock_name": "INDUSINDBK",
+      "side": "BUY",
+      "qty": 4,
+      "price": 144.302115,
+      "cost": 577.20846,
+      "balance_after": 6407.358111874997
+    },
+    {
+      "timestamp": "2026-04-24T11:08:29.688369",
+      "symbol": "NSE_EQ|INE092T01019",
+      "stock_name": "BHARTIARTL",
+      "side": "BUY",
+      "qty": 9,
+      "price": 67.903935,
+      "cost": 611.1354150000001,
+      "balance_after": 5796.222696874997
+    },
+    {
+      "timestamp": "2026-04-24T11:08:33.528792",
+      "symbol": "NSE_EQ|INE028A01039",
+      "stock_name": "BANKBARODA",
+      "side": "BUY",
+      "qty": 2,
+      "price": 276.138,
+      "cost": 552.276,
+      "balance_after": 5243.9466968749975
+    },
+    {
+      "timestamp": "2026-04-24T11:08:38.305261",
+      "symbol": "NSE_EQ|INE491A01021",
+      "stock_name": "EICHERMOT",
+      "side": "BUY",
+      "qty": 1,
+      "price": 265.83285,
+      "cost": 265.83285,
+      "balance_after": 4978.113846874998
+    },
+    {
+      "timestamp": "2026-04-24T11:08:51.245320",
+      "symbol": "NSE_EQ|INE029A01011",
+      "stock_name": "APOLLOHOSP",
+      "side": "BUY",
+      "qty": 1,
+      "price": 311.1555,
+      "cost": 311.1555,
+      "balance_after": 4666.958346874998
+    },
+    {
+      "timestamp": "2026-04-24T11:08:52.919460",
+      "symbol": "NSE_EQ|INE256A01028",
+      "stock_name": "ZOMATO",
+      "side": "BUY",
+      "qty": 5,
+      "price": 91.49572500000001,
+      "cost": 457.478625,
+      "balance_after": 4209.479721874998
+    }
+  ],
+  "total_trades": 5,
+  "winning_trades": 2,
+  "losing_trades": 3,
+  "total_profit": 70.68359375,
+  "total_loss": 3578.435546875,
+  "initial_capital": 100000,
+  "last_updated": "2026-04-24T11:08:52.919460"
+}

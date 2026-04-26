@@ -1,0 +1,69 @@
+@startuml UPVEST_DFD
+' UPVEST Platform - Data Flow Diagram
+' PlantUML Code
+
+!define EXTERNAL #E8E8E8
+!define PROCESS #FFFFFF
+!define DATASOURCE #E6F3FF
+
+title UPVEST Platform - Data Flow Diagram
+
+legend top left
+  |= Type |= Description |
+  | E | External Entities |
+  | P | Processes |
+  | D | Data Sources |
+endlegend
+
+' External Entities
+rectangle "E1: User Input Data\nFinancial goals, risk profile,\ninvestment preferences" as E1 EXTERNAL
+rectangle "E2: Gemini AI API\nExternal AI service for\nplan generation" as E2 EXTERNAL
+rectangle "E3: Dashboard\nReal-time UI\nPortfolio view" as E3 EXTERNAL
+rectangle "E4: Upstox API\nBrokerage service" as E4 EXTERNAL
+
+' Processes
+rectangle "P1: Authentication\nLogin/signup, session\nmanagement, validation" as P1 PROCESS
+rectangle "P2: Financial Planning\nAI-powered plan\ngeneration with Gemini" as P2 PROCESS
+rectangle "P3: Learning Module\nEducational content,\nquizzes, progress" as P3 PROCESS
+rectangle "P4: AI Bot\nReal-time investment\nassistant with Gemini" as P4 PROCESS
+rectangle "P5: DEMAT Integration\nUpstox API\naccount linking" as P5 PROCESS
+rectangle "P6: Data Processing\nCentralizes data,\ngenerates insights" as P6 PROCESS
+rectangle "P7: Portfolio Analytics\nPerformance tracking,\nrisk analysis" as P7 PROCESS
+rectangle "P8: Help Desk\nAI-powered support\nwith Gemini" as P8 PROCESS
+rectangle "P9: Quiz Assessment\nKnowledge tests,\ncertification" as P9 PROCESS
+
+' Data Source
+database "D1: LocalStorage DB\nUser sessions, plans,\nprogress, DEMAT data" as D1 DATASOURCE
+
+' Data Flow
+E1 --> P1
+P1 --> P2
+P1 --> P3
+P1 --> P4
+P1 --> P5
+
+P2 --> P6
+P3 --> P6
+P4 --> P6
+P5 --> P6
+
+P6 --> E3
+P6 --> P7
+P6 --> P8
+P6 --> P9
+
+P7 --> D1
+P8 --> D1
+P9 --> D1
+
+P4 ..> E2 : API Call
+P2 ..> E2 : API Call
+P8 ..> E2 : API Call
+' show integration with broker
+P5 ..> E4 : trade data / account links
+P6 --> E4 : order requests
+D1 --> E3
+
+caption Fig: UPVEST Platform - Data Flow Diagram
+
+@enduml

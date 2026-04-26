@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Planning - UPVEST</title>
+    <link rel="stylesheet" href="../core/variables.css">
+    <link rel="stylesheet" href="../core/global.css">
+    <link rel="stylesheet" href="../home/navbar.css">
+    <link rel="stylesheet" href="financial-planning.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <div id="navbar-container"></div>
+    
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Header -->
+            <section class="page-header">
+                <h1 class="page-title">🎯 Get Your Personalized Investment Plan</h1>
+                <p class="page-subtitle">AI-powered recommendations based on your financial profile</p>
+            </section>
+            
+            <!-- Financial Profile Form -->
+            <section class="form-section" id="formSection">
+                <div class="form-card">
+                    <h2 class="card-title">Tell Us About Your Finances</h2>
+                    <form id="financialForm" class="financial-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="monthlySalary" class="form-label">Monthly Salary (₹) *</label>
+                                <input type="number" id="monthlySalary" class="form-input" placeholder="50000" required min="0">
+                            </div>
+                            <div class="form-group">
+                                <label for="monthlyExpenses" class="form-label">Monthly Expenses (₹) *</label>
+                                <input type="number" id="monthlyExpenses" class="form-input" placeholder="30000" required min="0">
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="monthlySavings" class="form-label">Monthly Savings (₹) *</label>
+                                <input type="number" id="monthlySavings" class="form-input" placeholder="20000" required min="0">
+                            </div>
+                            <div class="form-group">
+                                <label for="age" class="form-label">Age *</label>
+                                <input type="number" id="age" class="form-input" placeholder="30" required min="18" max="100">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Risk Appetite *</label>
+                            <div class="risk-selector">
+                                <label class="risk-option">
+                                    <input type="radio" name="risk" value="low" required>
+                                    <div class="risk-card">
+                                        <div class="risk-icon">🛡️</div>
+                                        <div class="risk-name">Low Risk</div>
+                                        <div class="risk-desc">5-8% returns</div>
+                                    </div>
+                                </label>
+                                <label class="risk-option">
+                                    <input type="radio" name="risk" value="medium" checked>
+                                    <div class="risk-card">
+                                        <div class="risk-icon">⚖️</div>
+                                        <div class="risk-name">Medium Risk</div>
+                                        <div class="risk-desc">10-15% returns</div>
+                                    </div>
+                                </label>
+                                <label class="risk-option">
+                                    <input type="radio" name="risk" value="high">
+                                    <div class="risk-card">
+                                        <div class="risk-icon">🚀</div>
+                                        <div class="risk-name">High Risk</div>
+                                        <div class="risk-desc">15-25% returns</div>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary btn-block btn-lg">
+                            🤖 Generate AI Investment Plan
+                        </button>
+                    </form>
+                </div>
+            </section>
+            
+            <!-- Investment Plan Result -->
+            <section class="result-section" id="resultSection" style="display: none;">
+                <div class="result-card">
+                    <div class="result-header">
+                        <h2 class="card-title">Your Personalized Investment Plan</h2>
+                        <button class="btn btn-outline" id="editPlanBtn">✏️ Edit Profile</button>
+                    </div>
+                    <div class="plan-content" id="planContent">
+                        <!-- AI-generated plan will be displayed here -->
+                    </div>
+                    <div class="plan-actions">
+                        <button class="btn btn-primary btn-lg" id="viewFullPlanBtn">📄 View Full Plan Details</button>
+                        <button class="btn btn-outline btn-lg" id="downloadPlanBtn">⬇️ Download PDF</button>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+    
+    <!-- Full Plan Modal -->
+    <div class="modal-overlay" id="fullPlanModal">
+        <div class="modal-content modal-large">
+            <div class="modal-header">
+                <h2>Complete Investment Plan</h2>
+                <button class="modal-close" id="closeFullPlanModal">×</button>
+            </div>
+            <div class="modal-body" id="fullPlanContent">
+                <!-- Full plan details -->
+            </div>
+        </div>
+    </div>
+    
+    <!-- JavaScript -->
+    <script src="../core/config.js"></script>
+    <script src="../core/utils.js"></script>
+    <script src="../core/navigation.js"></script>
+    <script src="../core/api.js"></script>
+    <script src="../home/navbar.js"></script>
+    <script src="financial-form.js"></script>
+    <script src="ai-recommendations.js"></script>
+</body>
+</html>

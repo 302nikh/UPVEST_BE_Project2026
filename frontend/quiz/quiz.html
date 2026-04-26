@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Investment Quiz - UPVEST</title>
+    <link rel="stylesheet" href="../core/variables.css">
+    <link rel="stylesheet" href="../core/global.css">
+    <link rel="stylesheet" href="../home/navbar.css">
+    <link rel="stylesheet" href="quiz.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <div id="navbar-container"></div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Quiz Selection -->
+            <section class="quiz-selection" id="quizSelection">
+                <h1 class="page-title">🎯 Test Your Investment Knowledge</h1>
+                <p class="page-subtitle">Choose a quiz type to assess your understanding</p>
+                
+                <div class="quiz-types">
+                    <div class="quiz-type-card" data-type="mcq">
+                        <div class="quiz-type-icon">✅</div>
+                        <h3>MCQ Quiz</h3>
+                        <p>Multiple choice questions covering all modules</p>
+                        <div class="quiz-meta">
+                            <span>📝 20 Questions</span>
+                            <span>⏱️ 15 Minutes</span>
+                        </div>
+                        <button class="btn btn-primary">Start MCQ Quiz</button>
+                    </div>
+                    
+                    <div class="quiz-type-card" data-type="scenario">
+                        <div class="quiz-type-icon">🧠</div>
+                        <h3>Scenario-Based Quiz</h3>
+                        <p>Real-world investment scenarios evaluated by AI</p>
+                        <div class="quiz-meta">
+                            <span>📝 5 Scenarios</span>
+                            <span>⏱️ 20 Minutes</span>
+                        </div>
+                        <button class="btn btn-primary">Start Scenario Quiz</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Quiz Container -->
+            <section class="quiz-container" id="quizContainer" style="display: none;">
+                <div class="quiz-header">
+                    <div class="quiz-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="progressFill"></div>
+                        </div>
+                        <div class="progress-text" id="progressText">Question 1 of 20</div>
+                    </div>
+                    <div class="quiz-timer" id="quizTimer">⏱️ 15:00</div>
+                </div>
+
+                <div class="question-card" id="questionCard">
+                    <!-- Question content will be dynamically loaded -->
+                </div>
+
+                <div class="quiz-navigation">
+                    <button class="btn btn-outline" id="prevBtn" disabled>Previous</button>
+                    <button class="btn btn-primary" id="nextBtn">Next</button>
+                </div>
+            </section>
+
+            <!-- Quiz Results -->
+            <section class="quiz-results" id="quizResults" style="display: none;">
+                <div class="results-card">
+                    <div class="results-icon" id="resultsIcon">🎉</div>
+                    <h2 id="resultsTitle">Quiz Completed!</h2>
+                    <div class="score-display">
+                        <div class="score-circle">
+                            <div class="score-value" id="scoreValue">0%</div>
+                        </div>
+                    </div>
+                    <div class="results-stats">
+                        <div class="stat-item">
+                            <div class="stat-label">Correct Answers</div>
+                            <div class="stat-value" id="correctAnswers">0/20</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-label">Time Taken</div>
+                            <div class="stat-value" id="timeTaken">0:00</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-label">Performance</div>
+                            <div class="stat-value" id="performance">Good</div>
+                        </div>
+                    </div>
+                    <div class="results-actions">
+                        <button class="btn btn-outline" id="reviewBtn">Review Answers</button>
+                        <button class="btn btn-primary" id="retakeBtn">Retake Quiz</button>
+                        <a href="../learning/learning.html" class="btn btn-secondary">Back to Learning</a>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Scripts -->
+    <script src="../core/config.js"></script>
+    <script src="../core/utils.js"></script>
+    <script src="../core/navigation.js"></script>
+    <script src="../core/api.js"></script>
+    <script src="../home/navbar.js"></script>
+    <script src="quiz.js"></script>
+</body>
+</html>

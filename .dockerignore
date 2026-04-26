@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+.env
+.venv/
+venv/
+data/*/historical/*_5m.csv
+.git/
+.gitignore
+*.log
+data/trained_models/*.pth

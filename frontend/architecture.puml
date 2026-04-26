@@ -1,0 +1,45 @@
+@startuml UPVEST_Architecture
+' System architecture overview for UPVEST platform
+
+actor User as U
+
+package "Frontend (Browser)" {
+  [Web UI] as WebUI
+}
+
+package "Backend Services" {
+  [API Server\n(backend_api.py)] as API
+  [Auth Manager\n(auth_manager.py)] as Auth
+  [Database Manager\n(database_manager.py)] as DB
+  [Trading Engine\n(trading_execution.py)] as TE
+  [Strategy Engine\n(strategy_engine.py)] as SE
+  [AI Decision Engine\n(ai_agent/ai_decision_engine.py)] as AI
+  [Risk Manager\n(risk_manager.py)] as RM
+  [Trading Mode Manager\n(trading_mode_manager.py)] as TM
+  [Market Data Fetcher\n(market_data_fetcher.py)] as MD
+  [Upstox Connector\n(upstox.py)] as Broker
+}
+
+U --> WebUI : interacts via browser
+WebUI --> API : REST calls (status, portfolio, bot control, predictions)
+API --> Auth : validate / create user
+API --> DB : read/write trades, summaries, user data
+API --> TE : start/stop bot, query status
+API --> AI : /api/ai/predict endpoint
+
+TE --> SE : generate strategy signals
+TE --> AI : request price prediction / decision
+TE --> RM : check risk constraints
+TE --> TM : determine paper/live mode
+TE --> Broker : place orders / fetch positions
+MD --> DB : populate historical data
+Broker --> DB : update balances/positions
+DB --> WebUI : serve portfolio & history
+
+note right of API
+Backend is Python FastAPI
+handles CORS for frontend
+and orchestrates modules
+end note
+
+@enduml

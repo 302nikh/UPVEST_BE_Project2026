@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  upvest-bot:
+    build: .
+    container_name: upvest_backend
+    restart: always # Automatically restarts the bot if the cloud machine crashes or reboots
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./data:/app/data # Safe Mount: Local DB and Model Weights will survive container destruction
+    environment:
+      - ENVIRONMENT=production
+      - PYTHONUNBUFFERED=1
+
+# Note for future scaling:
+# If you decide to transition from SQLite to PostgreSQL or Redis for massive multi-user scaling, 
+# you would define those services here and link them to `upvest-bot`.

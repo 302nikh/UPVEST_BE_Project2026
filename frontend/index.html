@@ -1,0 +1,340 @@
+<!--
+================================================================================
+                    UPVEST PROJECT - CONFIGURATION GUIDE
+================================================================================
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UPVEST - AI-Powered Investment Platform</title>
+    <link rel="stylesheet" href="core/variables.css">
+    <link rel="stylesheet" href="core/global.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: moveBackground 20s linear infinite;
+        }
+
+        @keyframes moveBackground {
+            0% {
+                transform: translate(0, 0);
+            }
+
+            100% {
+                transform: translate(50px, 50px);
+            }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+        }
+
+        .logo-large {
+            font-size: 48px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+
+        .hero h1 {
+            font-size: 56px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 22px;
+            margin-bottom: 40px;
+            opacity: 0.95;
+            line-height: 1.6;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 18px 48px;
+            background: white;
+            color: #667eea;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 100px 20px;
+            background: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 60px;
+            color: #333;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 16px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .feature-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .feature-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Stats Section */
+        .stats {
+            padding: 80px 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            text-align: center;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .stat-item h2 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .stat-item p {
+            font-size: 18px;
+            opacity: 0.9;
+        }
+
+        /* Footer */
+        .footer {
+            background: #2c3e50;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        .footer-links a:hover {
+            opacity: 0.7;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero p {
+                font-size: 18px;
+            }
+
+            .section-title {
+                font-size: 32px;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="logo-large">UPVEST</div>
+            <h1>AI-Powered Smart Investment Platform</h1>
+            <p>Let artificial intelligence grow your wealth with data-driven investment decisions. Start investing with
+                as little as ₹500.</p>
+            <a href="auth/login.html" class="cta-button">Get Started →</a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">Why Choose UPVEST?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🤖</div>
+                    <h3>AI-Driven Decisions</h3>
+                    <p>Our advanced AI analyzes market trends, company fundamentals, and risk factors to make
+                        intelligent investment decisions on your behalf.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Real-Time Analytics</h3>
+                    <p>Get instant access to live market data, portfolio performance, and investment insights with our
+                        powerful analytics dashboard.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎓</div>
+                    <h3>Learn & Grow</h3>
+                    <p>Access comprehensive learning resources, video tutorials, and interactive quizzes to master
+                        investment strategies.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Bank-Level Security</h3>
+                    <p>Your investments are protected with enterprise-grade encryption and secure integration with
+                        SEBI-registered brokers.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💰</div>
+                    <h3>Smart Portfolio Plans</h3>
+                    <p>Choose from Safe, Balanced, or Growth plans tailored to your risk appetite and financial goals.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3>24/7 Support</h3>
+                    <p>Get instant help from our AI-powered chatbot and dedicated support team whenever you need
+                        assistance.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h2>10,000+</h2>
+                    <p>Active Investors</p>
+                </div>
+                <div class="stat-item">
+                    <h2>₹500Cr+</h2>
+                    <p>Assets Under Management</p>
+                </div>
+                <div class="stat-item">
+                    <h2>18%</h2>
+                    <p>Average Annual Returns</p>
+                </div>
+                <div class="stat-item">
+                    <h2>4.9★</h2>
+                    <p>User Rating</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="#">About Us</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Contact</a>
+                <a href="#">Blog</a>
+            </div>
+            <p>&copy; 2025 UPVEST. All rights reserved. SEBI Registered.</p>
+            <p style="margin-top: 10px; opacity: 0.8; font-size: 14px;">
+                Investments are subject to market risks. Please read all scheme-related documents carefully before
+                investing.
+            </p>
+        </div>
+    </footer>
+</body>
+
+</html>

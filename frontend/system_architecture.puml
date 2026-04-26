@@ -1,0 +1,75 @@
+@startuml
+title UPVEST Entire System Architecture
+
+left to right direction
+
+actor User
+
+package "Frontend (Browser)" {
+  component "Web UI" as UI
+  component "Static Assets" as Assets
+}
+
+package "Backend Services" {
+  component "API Server (FastAPI)" as API
+  component "Auth Manager" as Auth
+  component "Trading Engine" as Engine
+  component "AI Decision Engine" as AI
+  component "Strategy Engine" as Strat
+  component "Market Data Fetcher" as Data
+  component "Database Manager" as DB
+  component "Risk Manager" as Risk
+  component "Trading Mode Manager" as Mode
+  component "Upstox Connector" as Upstox
+}
+
+package "AI/ML" {
+  component "Feature Engineering" as FE
+  component "LSTM Models (daily/intraday)" as Models
+  component "Sentiment & RL" as OtherAI
+  database "Trained Models" as ModelStore
+}
+
+package "External Resources" {
+  database "Upstox API / Live Market" as LiveMarket
+  database "Historical Data DB" as HistDB
+}
+
+User --> UI : interact via browser
+UI --> API : REST requests (start/stop, status, predictions)
+
+API --> Auth : validate users / tokens
+API --> Engine : place orders, check status, query portfolio
+API --> AI : request price prediction / decision
+API --> Data : obtain latest/historical candles
+API --> DB : read/write trades and state
+
+Engine --> Mode : determine paper/live
+Engine --> Risk : check limits
+Engine --> Upstox : send orders / fetch positions
+Engine --> DB : record trades, update balances
+
+AI --> FE : prepare features
+AI --> Models : load & run LSTM
+AI --> OtherAI : sentiment / reinforcement signals
+Models --> ModelStore : read weights
+
+Data --> LiveMarket : pull realtime quotes
+Data --> HistDB : cache history
+
+DB --> HistDB : store historical candles & logs
+
+Upstox --> LiveMarket : external API calls
+
+' optional arrows indicating feedback
+AI --> DB : store predictions
+Strat --> API : strategy signals
+
+note right of API: Orchestrates modules,
+handles CORS, authentication,
+and exposes "/api/ai/predict"
+
+note bottom: System is modular; each component
+is a Python module under project root.
+
+@enduml

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Trading Agent - UPVEST</title>
+    <link rel="stylesheet" href="../core/variables.css">
+    <link rel="stylesheet" href="../core/global.css">
+    <link rel="stylesheet" href="agent.css">
+</head>
+
+<body>
+    <!-- Navbar Container -->
+    <div id="navbar-container"></div>
+
+    <!-- Main Content -->
+    <main class="agent-dashboard bot-dashboard">
+        <div class="container">
+            <!-- Header -->
+            <header class="dashboard-header">
+                <div class="header-left">
+                    <h1>🤖 AI Trading Agent</h1>
+                    <p class="subtitle">Autonomous AI-powered trading execution</p>
+                </div>
+                <div class="header-right">
+                    <div class="connection-status" id="connectionStatus">
+                        <span class="status-dot offline"></span>
+                        <span>Checking connection...</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Agent Status Card -->
+            <section class="agent-status-section">
+                <div class="status-card">
+                    <div class="status-main">
+                        <div class="agent-icon bot-icon" id="agentIcon">🤖</div>
+                        <div class="status-info">
+                            <h2 id="agentStatusText">Agent Status: Checking...</h2>
+                            <p id="agentStatusDesc">Connecting to backend server...</p>
+                        </div>
+                    </div>
+                    <div class="status-actions">
+                        <button class="btn btn-primary" id="startAgentBtn" disabled>
+                            ▶️ Start Agent
+                        </button>
+                        <button class="btn btn-danger" id="stopAgentBtn" disabled>
+                            ⏹️ Stop Agent
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Live Trading Warning Banner -->
+            <div class="live-warning-banner" id="liveWarningBanner">
+                <span class="warn-icon">⚠️</span>
+                <span>LIVE TRADING ACTIVE — Real orders are being placed with <strong>real money</strong> on your Upstox Demat account.</span>
+            </div>
+
+            <!-- Trading Mode Toggle -->
+            <section class="trading-mode-section">
+                <div class="mode-card">
+                    <div class="mode-toggle-group">
+                        <span class="mode-label">Trading Mode:</span>
+                        <div class="mode-toggle-pill" id="modePill">
+                            <span class="pill-option active-paper" id="pillPaper" onclick="handleModeToggle('paper')">📝 Paper</span>
+                            <span class="pill-option" id="pillLive" onclick="handleModeToggle('live')">🔴 Live</span>
+                        </div>
+                    </div>
+                    <div id="upstoxBadge" class="upstox-status-badge disconnected">
+                        <span class="badge-dot"></span>
+                        <span id="upstoxBadgeText">Upstox Not Connected</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Stats Grid -->
+            <section class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">💰</div>
+                    <div class="stat-content">
+                        <h3 id="todayPnL">₹0.00</h3>
+                        <p>Today's P&L</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">📊</div>
+                    <div class="stat-content">
+                        <h3 id="tradesToday">0</h3>
+                        <p>Trades Today</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">💵</div>
+                    <div class="stat-content">
+                        <h3 id="accountBalance">₹0.00</h3>
+                        <p>Account Balance</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">📈</div>
+                    <div class="stat-content">
+                        <h3 id="openPositions">0</h3>
+                        <p>Open Positions</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Trade History -->
+            <section class="trade-history-section">
+                <div class="section-header">
+                    <h2>📜 Recent Trades</h2>
+                    <button class="btn btn-secondary" id="refreshTradesBtn">🔄 Refresh</button>
+                </div>
+                <div class="trade-table-container">
+                    <table class="trade-table">
+                        <thead>
+                            <tr>
+                                <th>Time</th>
+                                <th>Stock</th>
+                                <th>Signal</th>
+                                <th>Qty</th>
+                                <th>Price</th>
+                                <th>Strategy</th>
+                                <th>Confidence</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tradesTableBody">
+                            <tr>
+                                <td colspan="8" class="loading-text">Loading trades...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- AI Prediction Section -->
+            <section class="prediction-section">
+                <div class="section-header">
+                    <h2>🔮 AI Stock Prediction</h2>
+                </div>
+                <div class="prediction-form">
+                    <select id="stockSelect" class="stock-select">
+                        <option value="NSE_EQ|INE467B01029">TCS</option>
+                        <option value="NSE_EQ|INE002A01018">RELIANCE</option>
+                        <option value="NSE_EQ|INE009A01021">INFY</option>
+                        <option value="NSE_EQ|INE238A01034">AXISBANK</option>
+                        <option value="NSE_EQ|INE040A01034">HDFC BANK</option>
+                    </select>
+                    <button class="btn btn-primary" id="getPredictionBtn">Get AI Prediction</button>
+                </div>
+                <div class="prediction-result" id="predictionResult" style="display: none;">
+                    <div class="prediction-signal" id="predictionSignal">HOLD</div>
+                    <div class="prediction-details">
+                        <p><strong>Confidence:</strong> <span id="predictionConfidence">0%</span></p>
+                        <p><strong>Predicted Price:</strong> <span id="predictedPrice">N/A</span></p>
+                        <p><strong>Models:</strong> <span id="predictionModels">N/A</span></p>
+                        <p><strong>Reason:</strong> <span id="predictionReason">N/A</span></p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Daily Summary Chart -->
+            <section class="chart-section">
+                <div class="section-header">
+                    <h2>📈 Performance History</h2>
+                </div>
+                <div class="chart-container">
+                    <canvas id="pnlChart"></canvas>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Toast Container -->
+    <div id="toast-container"></div>
+
+    <!-- Scripts -->
+    <script src="../core/config.js"></script>
+    <script src="../core/utils.js"></script>
+    <script src="../core/navigation.js"></script>
+    <script src="../core/backend-api.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="agent.js"></script>
+</body>
+
+</html>

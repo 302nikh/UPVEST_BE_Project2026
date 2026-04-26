@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chart Test - UPVEST</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 40px;
+            background: #f5f7fa;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .chart-box {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #1a1a1a;
+            margin-bottom: 10px;
+        }
+        .status {
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        .status.success { background: #d4edda; color: #155724; }
+        .status.error { background: #f8d7da; color: #721c24; }
+        canvas {
+            max-height: 250px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔍 Chart.js Test Page</h1>
+        <div id="status" class="status">Checking Chart.js...</div>
+        
+        <div class="chart-box">
+            <h2>Test Chart 1</h2>
+            <canvas id="testChart1"></canvas>
+        </div>
+        
+        <div class="chart-box">
+            <h2>Test Chart 2</h2>
+            <canvas id="testChart2"></canvas>
+        </div>
+    </div>
+
+    <script>
+        console.log('=== Chart.js Test ===');
+        
+        // Check if Chart.js is loaded
+        if (typeof Chart === 'undefined') {
+            console.error('❌ Chart.js NOT loaded!');
+            document.getElementById('status').textContent = '❌ ERROR: Chart.js failed to load from CDN. Check your internet connection.';
+            document.getElementById('status').className = 'status error';
+        } else {
+            console.log('✅ Chart.js loaded successfully!');
+            console.log('Chart.js version:', Chart.version);
+            document.getElementById('status').textContent = '✅ SUCCESS: Chart.js loaded! Version: ' + Chart.version;
+            document.getElementById('status').className = 'status success';
+            
+            // Create test chart 1
+            try {
+                const ctx1 = document.getElementById('testChart1').getContext('2d');
+                const data1 = [19450, 19475, 19460, 19490, 19505, 19500, 19520];
+                
+                new Chart(ctx1, {
+                    type: 'line',
+                    data: {
+                        labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+                        datasets: [{
+                            label: 'NIFTY 50 Test',
+                            data: data1,
+                            borderColor: '#28a745',
+                            backgroundColor: 'rgba(40, 167, 69, 0.1)',
+                            borderWidth: 2,
+                            fill: true,
+                            tension: 0.4
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: { display: true }
+                        }
+                    }
+                });
+                console.log('✅ Test Chart 1 created successfully');
+            } catch (error) {
+                console.error('❌ Error creating Chart 1:', error);
+            }
+            
+            // Create test chart 2
+            try {
+                const ctx2 = document.getElementById('testChart2').getContext('2d');
+                const data2 = [64800, 64900, 64850, 64950, 65020, 65000, 65100];
+                
+                new Chart(ctx2, {
+                    type: 'line',
+                    data: {
+                        labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+                        datasets: [{
+                            label: 'SENSEX Test',
+                            data: data2,
+                            borderColor: '#dc3545',
+                            backgroundColor: 'rgba(220, 53, 69, 0.1)',
+                            borderWidth: 2,
+                            fill: true,
+                            tension: 0.4
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: { display: true }
+                        }
+                    }
+                });
+                console.log('✅ Test Chart 2 created successfully');
+            } catch (error) {
+                console.error('❌ Error creating Chart 2:', error);
+            }
+        }
+    </script>
+</body>
+</html>

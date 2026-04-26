@@ -1,0 +1,8 @@
+{
+  "mode": "paper",
+  "strategy_mode": "intraday",
+  "capital_allocation_pct": 100.0,
+  "last_switched": "2026-04-24T18:22:10.095268",
+  "last_switched_by": "system",
+  "live_trading_confirmed": false
+}

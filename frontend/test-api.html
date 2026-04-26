@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Gemini API</title>
+    <style>
+        body {
+            font-family: monospace;
+            padding: 20px;
+            background: #1a202c;
+            color: #e2e8f0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        button {
+            padding: 12px 24px;
+            background: #7c3aed;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px 5px;
+        }
+        button:hover {
+            background: #6d28d9;
+        }
+        #result {
+            margin-top: 20px;
+            padding: 20px;
+            background: #2d3748;
+            border-radius: 8px;
+            white-space: pre-wrap;
+            max-height: 500px;
+            overflow-y: auto;
+        }
+        .success { color: #10b981; }
+        .error { color: #ef4444; }
+        .info { color: #3b82f6; }
+        .warning { color: #f59e0b; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔧 Gemini API Test Page</h1>
+        <p>Use this page to test if your Gemini API is working correctly.</p>
+        
+        <div>
+            <button onclick="testAPI()">Test API Connection</button>
+            <button onclick="testFullRequest()">Test Full Request</button>
+            <button onclick="clearResult()">Clear</button>
+        </div>
+
+        <div id="result"></div>
+    </div>
+
+    <script src="core/config.js"></script>
+    <script>
+        const resultDiv = document.getElementById('result');
+
+        function log(message, type = 'info') {
+            const span = document.createElement('span');
+            span.className = type;
+            span.textContent = message + '\n';
+            resultDiv.appendChild(span);
+            console.log(message);
+        }
+
+        function clearResult() {
+            resultDiv.innerHTML = '';
+        }
+
+        async function testAPI() {
+            clearResult();
+            log('🔍 Testing Gemini API...', 'info');
+            log('─'.repeat(50), 'info');
+            
+            // Check if config exists
+            if (typeof CONFIG === 'undefined') {
+                log('❌ ERROR: CONFIG not loaded', 'error');
+                log('   Make sure core/config.js is loaded correctly', 'warning');
+                return;
+            }
+            
+            log(`✓ CONFIG loaded successfully`, 'success');
+            
+            // Check API key
+            const apiKey = CONFIG?.API_KEYS?.GEMINI_API_KEY;
+            if (!apiKey) {
+                log('❌ ERROR: API key not found in CONFIG', 'error');
+                return;
+            }
+            
+            log(`✓ API Key found: ${apiKey.substring(0, 20)}...`, 'success');
+            log('─'.repeat(50), 'info');
+            
+            // Test simple request
+            log('📤 Sending test request to Gemini API...', 'info');
+            
+            try {
+                const response = await fetch(
+                    `https://generativelanguage.googleapis.com/v1/models/gemini-2.0-flash:generateContent?key=${apiKey}`,
+                    {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            contents: [{
+                                parts: [{
+                                    text: 'Say hello in one word'
+                                }]
+                            }]
+                        })
+                    }
+                );
+
+                log(`📥 Response Status: ${response.status} ${response.statusText}`, 
+                    response.ok ? 'success' : 'error');
+                
+                if (!response.ok) {
+                    const errorData = await response.json().catch(() => ({}));
+                    log('❌ API Error:', 'error');
+                    log(JSON.stringify(errorData, null, 2), 'error');
+                    
+                    if (response.status === 400) {
+                        log('\n💡 TIP: 400 = Bad Request - API key might be invalid', 'warning');
+                    } else if (response.status === 403) {
+                        log('\n💡 TIP: 403 = Forbidden - API key lacks permissions', 'warning');
+                    } else if (response.status === 429) {
+                        log('\n💡 TIP: 429 = Rate Limit - Too many requests', 'warning');
+                    }
+                    return;
+                }
+
+                const data = await response.json();
+                log('✅ SUCCESS! API is working!', 'success');
+                log('─'.repeat(50), 'info');
+                log('Response:', 'info');
+                log(JSON.stringify(data, null, 2), 'success');
+                
+                if (data.candidates?.[0]?.content?.parts?.[0]?.text) {
+                    log('\n✅ AI Response: ' + data.candidates[0].content.parts[0].text, 'success');
+                }
+
+            } catch (error) {
+                log('❌ ERROR:', 'error');
+                log(error.toString(), 'error');
+                
+                if (error.message.includes('Failed to fetch')) {
+                    log('\n💡 TIP: Network error - check internet connection', 'warning');
+                } else if (error.message.includes('CORS')) {
+                    log('\n💡 TIP: CORS error - make sure you\'re using a web server', 'warning');
+                }
+            }
+        }
+
+        async function testFullRequest() {
+            clearResult();
+            log('🔍 Testing Full Investment Plan Request...', 'info');
+            log('─'.repeat(50), 'info');
+            
+            const apiKey = CONFIG?.API_KEYS?.GEMINI_API_KEY;
+            if (!apiKey) {
+                log('❌ ERROR: API key not found', 'error');
+                return;
+            }
+
+            const testPrompt = `You are a financial advisor. Create a brief investment plan for:
+- Age: 25
+- Monthly Income: ₹75,000
+- Risk: Medium
+- Goal: Wealth Creation
+
+Provide:
+1. Asset Allocation (percentages)
+2. 2 investment recommendations
+3. Expected returns`;
+
+            log('📤 Sending full request...', 'info');
+            
+            try {
+                const startTime = Date.now();
+                
+                const response = await fetch(
+                    `https://generativelanguage.googleapis.com/v1/models/gemini-2.0-flash:generateContent?key=${apiKey}`,
+                    {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            contents: [{
+                                parts: [{ text: testPrompt }]
+                            }],
+                            generationConfig: {
+                                temperature: 0.7,
+                                topK: 40,
+                                topP: 0.95,
+                                maxOutputTokens: 2048,
+                            }
+                        })
+                    }
+                );
+
+                const endTime = Date.now();
+                const duration = ((endTime - startTime) / 1000).toFixed(2);
+
+                log(`📥 Response received in ${duration}s`, response.ok ? 'success' : 'error');
+                log(`Status: ${response.status} ${response.statusText}`, 
+                    response.ok ? 'success' : 'error');
+
+                if (!response.ok) {
+                    const errorData = await response.json().catch(() => ({}));
+                    log('❌ Error Response:', 'error');
+                    log(JSON.stringify(errorData, null, 2), 'error');
+                    return;
+                }
+
+                const data = await response.json();
+                
+                if (data.candidates?.[0]?.content?.parts?.[0]?.text) {
+                    log('✅ SUCCESS! Full request working!', 'success');
+                    log('─'.repeat(50), 'info');
+                    log('AI Investment Plan:', 'info');
+                    log(data.candidates[0].content.parts[0].text, 'success');
+                } else {
+                    log('⚠️ Warning: Unexpected response structure', 'warning');
+                    log(JSON.stringify(data, null, 2), 'warning');
+                }
+
+            } catch (error) {
+                log('❌ ERROR:', 'error');
+                log(error.toString(), 'error');
+            }
+        }
+
+        // Auto-run test on page load
+        window.addEventListener('load', () => {
+            log('Ready! Click "Test API Connection" to begin.', 'info');
+            log('─'.repeat(50), 'info');
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - UPVEST</title>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="../core/variables.css">
+    <link rel="stylesheet" href="../core/global.css">
+    <link rel="stylesheet" href="auth.css">
+</head>
+<body>
+    <div class="auth-wrapper">
+        <!-- Back to Home Link -->
+        <a href="../index.html" class="back-home">
+            ← Back to Home
+        </a>
+        
+        <!-- Login Card -->
+        <div class="auth-card">
+            <!-- Logo -->
+            <div class="auth-logo">
+                <div class="auth-logo-text">UPVEST</div>
+                <div class="auth-logo-tagline">AI-Powered Investment Platform</div>
+            </div>
+            
+            <!-- Title -->
+            <h1 class="auth-title">Welcome Back</h1>
+            <p class="auth-subtitle">Login to access your investment dashboard</p>
+            
+            <!-- Login Form -->
+            <form id="loginForm" class="auth-form" novalidate>
+                <!-- Email Field -->
+                <div class="form-group has-icon">
+                    <label for="loginEmail" class="form-label">Email Address</label>
+                    <div style="position: relative;">
+                        <span class="input-icon">📧</span>
+                        <input 
+                            type="email" 
+                            id="loginEmail" 
+                            name="email"
+                            class="form-input" 
+                            placeholder="Enter your email"
+                            required
+                            autocomplete="email"
+                        >
+                    </div>
+                </div>
+                
+                <!-- Password Field -->
+                <div class="form-group has-icon">
+                    <label for="loginPassword" class="form-label">Password</label>
+                    <div style="position: relative;">
+                        <span class="input-icon">🔒</span>
+                        <input 
+                            type="password" 
+                            id="loginPassword" 
+                            name="password"
+                            class="form-input" 
+                            placeholder="Enter your password"
+                            required
+                            autocomplete="current-password"
+                        >
+                        <button type="button" class="password-toggle" tabindex="-1">👁️</button>
+                    </div>
+                </div>
+                
+                <!-- Remember Me & Forgot Password -->
+                <div class="form-options">
+                    <label class="remember-me">
+                        <input type="checkbox" id="rememberMe">
+                        <span>Remember me</span>
+                    </label>
+                    <a href="#" class="forgot-password">Forgot Password?</a>
+                </div>
+                
+                <!-- Submit Button -->
+                <button type="submit" class="auth-submit-btn">
+                    Login to Dashboard
+                </button>
+            </form>
+            
+            <!-- Switch to Signup -->
+            <div class="auth-switch">
+                Don't have an account? 
+                <a href="signup.html" class="auth-switch-link">Sign up for free</a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- JavaScript -->
+    <script src="../core/config.js"></script>
+    <script src="../core/utils.js"></script>
+    <script src="../core/navigation.js"></script>
+    <script src="../core/api.js"></script>
+    <script src="auth.js"></script>
+</body>
+</html>

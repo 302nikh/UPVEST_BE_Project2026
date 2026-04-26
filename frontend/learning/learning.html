@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning - UPVEST</title>
+    <link rel="stylesheet" href="../core/variables.css">
+    <link rel="stylesheet" href="../core/global.css">
+    <link rel="stylesheet" href="../home/navbar.css">
+    <link rel="stylesheet" href="learning.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <div id="navbar-container"></div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Back Button -->
+            <a href="../home/dashboard.html" class="back-button">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                    <path d="M19 12H5M5 12l7 7M5 12l7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                Back to Home
+            </a>
+
+            <!-- Header -->
+            <div class="page-header">
+                <h1>Investment Education</h1>
+                <p>Master the art of investing through structured video modules and assessments</p>
+            </div>
+
+            <!-- Modules Grid -->
+            <div class="modules-grid">
+                <!-- Module 1 -->
+                <div class="module-card">
+                    <div class="module-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" stroke="currentColor" stroke-width="2"/>
+                            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <h3>Fundamentals of Investment & Stocks</h3>
+                    <p>Learn the basics of investing, stock markets, and how they work</p>
+                    <span class="duration">Duration: 45 min</span>
+                    <div class="module-actions">
+                        <button class="btn-watch" onclick="openVideoModal('fundamentals')">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                                <path d="M10 8l6 4-6 4V8z" fill="currentColor"/>
+                            </svg>
+                            Watch Video
+                        </button>
+                        <button class="btn-mcq" onclick="openMCQModal('fundamentals')">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                                <path d="M9 11l3 3L22 4" stroke="white" stroke-width="2"/>
+                                <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" stroke="white" stroke-width="2"/>
+                            </svg>
+                            Take MCQ Test
+                        </button>
+                        <button class="btn-scenario" onclick="openScenarioModal('fundamentals')">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                                <path d="M12 2L2 7l10 5 10-5-10-5z" stroke="currentColor" stroke-width="2"/>
+                                <path d="M2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                            Scenario Test
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Module 2 -->
+                <div class="module-card">
+                    <div class="module-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" stroke="currentColor" stroke-width="2"/>
+                            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <h3>Understanding Risk & Portfolio Management</h3>
+                    <p>Master risk assessment and portfolio diversification strategies</p>
+                    <span class="duration">Duration: 50 min</span>
+                    <div class="module-actions">
+                        <button class="btn-watch" onclick="openVideoModal('risk')">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                                <path d="M10 8l6 4-6 4V8z" fill="currentColor"/>
+                            </svg>
+                            Watch Video
+                        </button>
+                        <button class="btn-mcq" onclick="openMCQModal('risk')">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                                <path d="M9 11l3 3L22 4" stroke="white" stroke-width="2"/>
+                                <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" stroke="white" stroke-width="2"/>
+                            </svg>
+                            Take MCQ Test
+                        </button>
+                        <button class="btn-scenario" onclick="openScenarioModal('risk')">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                                <path d="M12 2L2 7l10 5 10-5-10-5z" stroke="currentColor" stroke-width="2"/>
+                                <path d="M2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                            Scenario Test
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Module 3 -->
+                <div class="module-card">
+                    <div class="module-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" stroke="currentColor" stroke-width="2"/>
+                            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <h3>Technical Analysis Basics</h3>
+                    <p>Study price charts, indicators, and market trends</p>
+                    <span class="duration">Duration: 60 min</span>
+                    <div class="module-actions">
+                        <button class="btn-watch" onclick="openVideoModal('technical')">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                                <path d="M10 8l6 4-6 4V8z" fill="currentColor"/>
+                            </svg>
+                            Watch Video
+                        </button>
+                        <button class="btn-mcq" onclick="openMCQModal('technical')">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                                <path d="M9 11l3 3L22 4" stroke="white" stroke-width="2"/>
+                                <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" stroke="white" stroke-width="2"/>
+                            </svg>
+                            Take MCQ Test
+                        </button>
+                        <button class="btn-scenario" onclick="openScenarioModal('technical')">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                                <path d="M12 2L2 7l10 5 10-5-10-5z" stroke="currentColor" stroke-width="2"/>
+                                <path d="M2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                            Scenario Test
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Module 4 -->
+                <div class="module-card">
+                    <div class="module-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" stroke="currentColor" stroke-width="2"/>
+                            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <h3>Fundamental Analysis & Company Valuation</h3>
+                    <p>Analyze company financials and determine stock value</p>
+                    <span class="duration">Duration: 55 min</span>
+                    <div class="module-actions">
+                        <button class="btn-watch" onclick="openVideoModal('fundamental')">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                                <path d="M10 8l6 4-6 4V8z" fill="currentColor"/>
+                            </svg>
+                            Watch Video
+                        </button>
+                        <button class="btn-mcq" onclick="openMCQModal('fundamental')">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                                <path d="M9 11l3 3L22 4" stroke="white" stroke-width="2"/>
+                                <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" stroke="white" stroke-width="2"/>
+                            </svg>
+                            Take MCQ Test
+                        </button>
+                        <button class="btn-scenario" onclick="openScenarioModal('fundamental')">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                                <path d="M12 2L2 7l10 5 10-5-10-5z" stroke="currentColor" stroke-width="2"/>
+                                <path d="M2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                            Scenario Test
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Module 5 -->
+                <div class="module-card">
+                    <div class="module-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" stroke="currentColor" stroke-width="2"/>
+                            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <h3>Mutual Funds & ETFs</h3>
+                    <p>Understanding different investment vehicles and their benefits</p>
+                    <span class="duration">Duration: 40 min</span>
+                    <div class="module-actions">
+                        <button class="btn-watch" onclick="openVideoModal('mutual-funds')">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                                <path d="M10 8l6 4-6 4V8z" fill="currentColor"/>
+                            </svg>
+                            Watch Video
+                        </button>
+                        <button class="btn-mcq" onclick="openMCQModal('mutual-funds')">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                                <path d="M9 11l3 3L22 4" stroke="white" stroke-width="2"/>
+                                <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" stroke="white" stroke-width="2"/>
+                            </svg>
+                            Take MCQ Test
+                        </button>
+                        <button class="btn-scenario" onclick="openScenarioModal('mutual-funds')">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                                <path d="M12 2L2 7l10 5 10-5-10-5z" stroke="currentColor" stroke-width="2"/>
+                                <path d="M2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                            Scenario Test
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Module 6 -->
+                <div class="module-card">
+                    <div class="module-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" stroke="currentColor" stroke-width="2"/>
+                            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <h3>Trading Psychology & Discipline</h3>
+                    <p>Master emotional control and develop winning trading habits</p>
+                    <span class="duration">Duration: 45 min</span>
+                    <div class="module-actions">
+                        <button class="btn-watch" onclick="openVideoModal('psychology')">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                                <path d="M10 8l6 4-6 4V8z" fill="currentColor"/>
+                            </svg>
+                            Watch Video
+                        </button>
+                        <button class="btn-mcq" onclick="openMCQModal('psychology')">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                                <path d="M9 11l3 3L22 4" stroke="white" stroke-width="2"/>
+                                <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" stroke="white" stroke-width="2"/>
+                            </svg>
+                            Take MCQ Test
+                        </button>
+                        <button class="btn-scenario" onclick="openScenarioModal('psychology')">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                                <path d="M12 2L2 7l10 5 10-5-10-5z" stroke="currentColor" stroke-width="2"/>
+                                <path d="M2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                            Scenario Test
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Video Modal -->
+    <div class="modal" id="videoModal">
+        <div class="modal-content modal-lg">
+            <div class="modal-header">
+                <h3 id="videoModalTitle">Watch Video</h3>
+                <button class="modal-close" onclick="closeModal('videoModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="video-input-section">
+                    <label>YouTube Video URL:</label>
+                    <input type="text" id="youtubeUrlInput" placeholder="Enter YouTube video link (e.g., https://www.youtube.com/watch?v=...)" class="form-input">
+                    <button onclick="loadVideo()" class="btn-primary">Load Video</button>
+                </div>
+                <div id="videoPlayerContainer" class="video-player-container" style="display: none;">
+                    <iframe id="videoPlayer" width="100%" height="450" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MCQ Test Modal -->
+    <div class="modal" id="mcqModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="mcqModalTitle">MCQ Test - Fundamentals of Investment & Stocks</h3>
+                <button class="modal-close" onclick="closeModal('mcqModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="mcqForm">
+                    <div class="question-block">
+                        <h4>Question 1</h4>
+                        <div class="options">
+                            <label><input type="radio" name="q1" value="a"> Option A</label>
+                            <label><input type="radio" name="q1" value="b"> Option B</label>
+                            <label><input type="radio" name="q1" value="c"> Option C</label>
+                            <label><input type="radio" name="q1" value="d"> Option D</label>
+                        </div>
+                    </div>
+
+                    <div class="question-block">
+                        <h4>Question 2</h4>
+                        <div class="options">
+                            <label><input type="radio" name="q2" value="a"> Option A</label>
+                            <label><input type="radio" name="q2" value="b"> Option B</label>
+                            <label><input type="radio" name="q2" value="c"> Option C</label>
+                            <label><input type="radio" name="q2" value="d"> Option D</label>
+                        </div>
+                    </div>
+
+                    <div class="question-block">
+                        <h4>Question 3</h4>
+                        <div class="options">
+                            <label><input type="radio" name="q3" value="a"> Option A</label>
+                            <label><input type="radio" name="q3" value="b"> Option B</label>
+                            <label><input type="radio" name="q3" value="c"> Option C</label>
+                            <label><input type="radio" name="q3" value="d"> Option D</label>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn-submit">Submit Test</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scenario Test Modal -->
+    <div class="modal" id="scenarioModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="scenarioModalTitle">Scenario Test - Fundamentals of Investment & Stocks</h3>
+                <button class="modal-close" onclick="closeModal('scenarioModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="scenario-box">
+                    <h4>Scenario:</h4>
+                    <p id="scenarioText">You have ₹50,000 to invest. The market has dropped 20% in the last month. Several good companies are now trading at lower prices. What would be your investment strategy and why?</p>
+                </div>
+                <div class="answer-section">
+                    <label>Your Answer</label>
+                    <textarea id="scenarioAnswer" rows="8" placeholder="Explain your investment approach, risk management, and reasoning..."></textarea>
+                    <button onclick="submitScenario()" class="btn-submit">Submit for AI Evaluation</button>
+                </div>
+                <div id="evaluationResult" style="display: none;" class="evaluation-result">
+                    <!-- AI evaluation will appear here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../core/config.js"></script>
+    <script src="../core/utils.js"></script>
+    <script src="../core/navigation.js"></script>
+    <script src="../home/navbar.js"></script>
+    <script src="learning.js"></script>
+</body>
+</html>

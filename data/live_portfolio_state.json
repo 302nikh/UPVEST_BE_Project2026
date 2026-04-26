@@ -1,0 +1,149 @@
+{
+  "trade_history": [
+    {
+      "timestamp": "2026-02-18T12:23:54.941623",
+      "side": "BUY",
+      "symbol": "NSE_EQ|TEST",
+      "stock_name": "Test Stock",
+      "quantity": 10,
+      "price": 500.0,
+      "order_id": "ORD123456",
+      "status": "SUCCESS",
+      "strategy": "AI",
+      "mode": "LIVE"
+    },
+    {
+      "timestamp": "2026-02-18T12:23:59.337710",
+      "side": "BUY",
+      "symbol": "NSE_EQ|TEST",
+      "stock_name": "NSE_EQ|TEST",
+      "quantity": 10,
+      "price": 500.0,
+      "order_id": "",
+      "status": "FAILED",
+      "strategy": "AI",
+      "mode": "LIVE"
+    },
+    {
+      "timestamp": "2026-02-18T12:23:59.369697",
+      "side": "BUY",
+      "symbol": "NSE_EQ|TEST",
+      "stock_name": "NSE_EQ|TEST",
+      "quantity": 5,
+      "price": 500.0,
+      "order_id": "",
+      "status": "ERROR",
+      "strategy": "AI",
+      "mode": "LIVE"
+    },
+    {
+      "timestamp": "2026-02-18T12:23:59.394042",
+      "side": "SELL",
+      "symbol": "NSE_EQ|TEST",
+      "stock_name": "Test Stock",
+      "quantity": 5,
+      "price": 550.0,
+      "order_id": "ORD789012",
+      "status": "SUCCESS",
+      "strategy": "AI",
+      "mode": "LIVE"
+    },
+    {
+      "timestamp": "2026-02-18T12:24:48.829740",
+      "side": "BUY",
+      "symbol": "NSE_EQ|TEST",
+      "stock_name": "Test Stock",
+      "quantity": 10,
+      "price": 500.0,
+      "order_id": "ORD123456",
+      "status": "SUCCESS",
+      "strategy": "AI",
+      "mode": "LIVE"
+    },
+    {
+      "timestamp": "2026-02-18T12:24:49.552049",
+      "side": "BUY",
+      "symbol": "NSE_EQ|TEST",
+      "stock_name": "NSE_EQ|TEST",
+      "quantity": 10,
+      "price": 500.0,
+      "order_id": "",
+      "status": "FAILED",
+      "strategy": "AI",
+      "mode": "LIVE"
+    },
+    {
+      "timestamp": "2026-02-18T12:24:49.586520",
+      "side": "BUY",
+      "symbol": "NSE_EQ|TEST",
+      "stock_name": "NSE_EQ|TEST",
+      "quantity": 5,
+      "price": 500.0,
+      "order_id": "",
+      "status": "ERROR",
+      "strategy": "AI",
+      "mode": "LIVE"
+    },
+    {
+      "timestamp": "2026-02-18T12:24:49.615110",
+      "side": "SELL",
+      "symbol": "NSE_EQ|TEST",
+      "stock_name": "Test Stock",
+      "quantity": 5,
+      "price": 550.0,
+      "order_id": "ORD789012",
+      "status": "SUCCESS",
+      "strategy": "AI",
+      "mode": "LIVE"
+    },
+    {
+      "timestamp": "2026-02-18T12:25:38.019509",
+      "side": "BUY",
+      "symbol": "NSE_EQ|TEST",
+      "stock_name": "Test Stock",
+      "quantity": 10,
+      "price": 500.0,
+      "order_id": "ORD123456",
+      "status": "SUCCESS",
+      "strategy": "AI",
+      "mode": "LIVE"
+    },
+    {
+      "timestamp": "2026-02-18T12:25:38.697679",
+      "side": "BUY",
+      "symbol": "NSE_EQ|TEST",
+      "stock_name": "NSE_EQ|TEST",
+      "quantity": 10,
+      "price": 500.0,
+      "order_id": "",
+      "status": "FAILED",
+      "strategy": "AI",
+      "mode": "LIVE"
+    },
+    {
+      "timestamp": "2026-02-18T12:25:38.721902",
+      "side": "BUY",
+      "symbol": "NSE_EQ|TEST",
+      "stock_name": "NSE_EQ|TEST",
+      "quantity": 5,
+      "price": 500.0,
+      "order_id": "",
+      "status": "ERROR",
+      "strategy": "AI",
+      "mode": "LIVE"
+    },
+    {
+      "timestamp": "2026-02-18T12:25:38.747413",
+      "side": "SELL",
+      "symbol": "NSE_EQ|TEST",
+      "stock_name": "Test Stock",
+      "quantity": 5,
+      "price": 550.0,
+      "order_id": "ORD789012",
+      "status": "SUCCESS",
+      "strategy": "AI",
+      "mode": "LIVE"
+    }
+  ],
+  "last_updated": "2026-02-18T12:25:38.749423"
+}

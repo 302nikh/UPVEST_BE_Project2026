@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help Desk - UPVEST</title>
+    <link rel="stylesheet" href="../core/variables.css">
+    <link rel="stylesheet" href="../core/global.css">
+    <link rel="stylesheet" href="../home/navbar.css">
+    <link rel="stylesheet" href="help.css">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <div id="navbar-container"></div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Back Button -->
+            <a href="../home/dashboard.html" class="back-button">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                    <path d="M19 12H5M5 12l7 7M5 12l7-7" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" />
+                </svg>
+                Back to Home
+            </a>
+
+            <!-- Header -->
+            <div class="page-header">
+                <h1>Help Desk</h1>
+                <p>Get instant answers to your investment questions</p>
+            </div>
+
+            <!-- Chat Container -->
+            <div class="chat-container">
+                <!-- Chat Header -->
+                <div class="chat-header">
+                    <div class="header-content">
+                        <div class="ai-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
+                                    stroke="currentColor" stroke-width="2" />
+                            </svg>
+                        </div>
+                        <span>UPVEST AI Assistant</span>
+                    </div>
+                </div>
+
+                <!-- Messages Area -->
+                <div class="messages-area" id="messagesArea">
+                    <!-- Welcome Message -->
+                    <div class="message bot-message">
+                        <div class="message-avatar">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                <circle cx="12" cy="8" r="4" fill="white" />
+                                <path d="M4 20c0-4 4-6 8-6s8 2 8 6" stroke="white" stroke-width="2" />
+                            </svg>
+                        </div>
+                        <div class="message-content">
+                            <p>Hello! I'm your UPVEST Assistant. I can help you with questions about investing, stocks,
+                                our platform features, or any financial topics. How can I assist you today?</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Input Area -->
+                <div class="input-area">
+                    <textarea id="userInput" placeholder="Ask me anything about investing..." rows="1"></textarea>
+                    <button id="sendBtn" class="send-btn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" stroke="currentColor" stroke-width="2" />
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Input Helper Text -->
+                <div class="input-helper">
+                    Press Enter to send, Shift+Enter for new line
+                </div>
+            </div>
+
+            <!-- Quick Topics -->
+            <div class="quick-topics">
+                <div class="topic-card" onclick="askQuestion('Tell me about the basics of stock market investing')">
+                    <h4>Investment Basics</h4>
+                    <p>Learn about stocks, bonds, and mutual funds</p>
+                </div>
+                <div class="topic-card" onclick="askQuestion('How do I connect my DEMAT account?')">
+                    <h4>DEMAT Account</h4>
+                    <p>Understanding your DEMAT account</p>
+                </div>
+                <div class="topic-card" onclick="askQuestion('What is risk management in investing?')">
+                    <h4>Risk Management</h4>
+                    <p>Strategies to minimize investment risk</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Scripts -->
+    <script src="../core/config.js"></script>
+    <script src="../core/utils.js"></script>
+    <script src="../core/navigation.js"></script>
+    <script src="../core/api.js"></script>
+    <script src="../home/navbar.js"></script>
+    <script src="help.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Investment Planner - UPVEST</title>
+    <link rel="stylesheet" href="../core/variables.css">
+    <link rel="stylesheet" href="../core/global.css">
+    <link rel="stylesheet" href="../home/navbar.css">
+    <link rel="stylesheet" href="financial-planning.css">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <div id="navbar-container"></div>
+
+    <!-- Main Content -->
+    <main class="planner-main">
+        <div class="planner-container">
+            <!-- Back Button -->
+            <a href="../home/dashboard.html" class="back-button">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                    <path d="M19 12H5M5 12l7 7M5 12l7-7" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" />
+                </svg>
+                Back to Home
+            </a>
+
+            <!-- Feature Tags -->
+            <div class="feature-tags">
+                <div class="feature-tag active">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                        <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" />
+                        <path d="M12 6v6l4 2" stroke="currentColor" stroke-width="2" />
+                    </svg>
+                    Personalized Plans
+                </div>
+                <div class="feature-tag">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                        <circle cx="12" cy="8" r="4" fill="currentColor" />
+                        <path d="M4 20c0-4 4-6 8-6s8 2 8 6" stroke="currentColor" stroke-width="2" />
+                    </svg>
+                    AI Analysis
+                </div>
+                <div class="feature-tag">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                        <path d="M12 2L2 7l10 5 10-5-10-5z" fill="currentColor" />
+                        <path d="M2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" stroke-width="2" />
+                    </svg>
+                    Growth Focused
+                </div>
+            </div>
+
+            <!-- Step Indicator -->
+            <div class="step-indicator">
+                <div class="step active" data-step="1">
+                    <div class="step-circle">1</div>
+                    <div class="step-label">Income & Expenses</div>
+                </div>
+                <div class="step-line"></div>
+                <div class="step" data-step="2">
+                    <div class="step-circle">2</div>
+                    <div class="step-label">Goals & Risk</div>
+                </div>
+                <div class="step-line"></div>
+                <div class="step" data-step="3">
+                    <div class="step-circle">3</div>
+                    <div class="step-label">AI Analysis</div>
+                </div>
+                <div class="step-line"></div>
+                <div class="step" data-step="4">
+                    <div class="step-circle">4</div>
+                    <div class="step-label">Your Plan</div>
+                </div>
+            </div>
+
+            <!-- Form Container -->
+            <div class="form-container">
+                <!-- Step 1: Income & Expenses -->
+                <div class="form-step active" id="step1">
+                    <div class="step-content">
+                        <h2 class="step-title">Tell us about your finances</h2>
+                        <p class="step-subtitle">We need to understand your current financial situation</p>
+
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="monthlyIncome">Monthly Income (₹) <span class="required">*</span></label>
+                                <input type="number" id="monthlyIncome" placeholder="e.g., 75000" required>
+                                <small>Your total monthly income after taxes</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="monthlyExpenses">Monthly Expenses (₹) <span
+                                        class="required">*</span></label>
+                                <input type="number" id="monthlyExpenses" placeholder="e.g., 45000" required>
+                                <small>Total monthly expenses including rent, bills, etc.</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="currentSavings">Current Savings (₹) <span class="required">*</span></label>
+                                <input type="number" id="currentSavings" placeholder="e.g., 500000" required>
+                                <small>Total savings you have right now</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="existingInvestments">Existing Investments (₹)</label>
+                                <input type="number" id="existingInvestments" placeholder="e.g., 200000">
+                                <small>Any investments you already have (optional)</small>
+                            </div>
+                        </div>
+
+                        <!-- Monthly Surplus Box -->
+                        <div class="surplus-box" id="surplusBox" style="display: none;">
+                            <div class="surplus-content">
+                                <div class="surplus-icon">✓</div>
+                                <div class="surplus-text">
+                                    <strong>Monthly Surplus Available:</strong>
+                                    <p>This is the amount you can invest every month</p>
+                                </div>
+                            </div>
+                            <div class="surplus-amount" id="surplusAmount">₹0</div>
+                        </div>
+
+                        <button class="btn-next" onclick="goToStep(2)">Next Step →</button>
+                    </div>
+                </div>
+
+                <!-- Step 2: Goals & Risk -->
+                <div class="form-step" id="step2">
+                    <div class="step-content">
+                        <h2 class="step-title">Your investment goals</h2>
+                        <p class="step-subtitle">Help us understand what you're investing for</p>
+
+                        <div class="form-grid-half">
+                            <div class="form-group">
+                                <label for="userAge">Your Age <span class="required">*</span></label>
+                                <input type="number" id="userAge" placeholder="24" min="18" max="100" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="investmentDuration">Investment Duration <span
+                                        class="required">*</span></label>
+                                <select id="investmentDuration" required>
+                                    <option value="">Select duration</option>
+                                    <option value="short">Short Term (1-3 years)</option>
+                                    <option value="medium">Medium Term (3-5 years)</option>
+                                    <option value="long">Long Term (5+ years)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="investmentGoal">Primary Investment Goal <span class="required">*</span></label>
+                            <select id="investmentGoal" required>
+                                <option value="">Select your goal</option>
+                                <option value="retirement">Retirement Planning</option>
+                                <option value="wealth">Wealth Creation</option>
+                                <option value="education">Child's Education</option>
+                                <option value="house">Buy House/Property</option>
+                                <option value="marriage">Marriage/Wedding</option>
+                                <option value="emergency">Emergency Fund</option>
+                                <option value="general">General Savings</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Risk Tolerance <span class="required">*</span></label>
+                            <div class="risk-cards">
+                                <div class="risk-card" data-risk="low">
+                                    <div class="risk-icon">🛡️</div>
+                                    <h4>Low Risk</h4>
+                                    <p>I prefer safety over returns. Capital protection is most important.</p>
+                                </div>
+                                <div class="risk-card" data-risk="medium">
+                                    <div class="risk-icon">⚖️</div>
+                                    <h4>Medium Risk</h4>
+                                    <p>I want a balanced approach with moderate growth potential.</p>
+                                </div>
+                                <div class="risk-card" data-risk="high">
+                                    <div class="risk-icon">🚀</div>
+                                    <h4>High Risk</h4>
+                                    <p>I can handle volatility for higher returns. Growth is my priority.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="step-buttons">
+                            <button class="btn-back" onclick="goToStep(1)">← Back</button>
+                            <button class="btn-next" onclick="generateAIPlan()">Generate AI Plan</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 3: AI Analysis -->
+                <div class="form-step" id="step3">
+                    <div class="step-content ai-analysis">
+                        <div class="ai-robot">
+                            <svg width="100" height="100" viewBox="0 0 100 100" fill="none">
+                                <circle cx="50" cy="45" r="25" fill="#7c3aed" />
+                                <circle cx="42" cy="42" r="4" fill="white" />
+                                <circle cx="58" cy="42" r="4" fill="white" />
+                                <path d="M42 55 Q50 60 58 55" stroke="white" stroke-width="3" stroke-linecap="round" />
+                                <rect x="35" y="20" width="5" height="15" rx="2" fill="#f59e0b" />
+                                <rect x="60" y="20" width="5" height="15" rx="2" fill="#f59e0b" />
+                                <circle cx="37.5" cy="17" r="3" fill="#ef4444" />
+                                <circle cx="62.5" cy="17" r="3" fill="#ef4444" />
+                            </svg>
+                        </div>
+                        <h2 class="ai-title">AI is analyzing your data...</h2>
+                        <p class="ai-subtitle">Our intelligent system is creating a personalized investment plan based
+                            on your financial profile.</p>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="progressFill"></div>
+                        </div>
+                        <p class="progress-text" id="progressText">Calculating optimal allocation...</p>
+                    </div>
+                </div>
+
+                <!-- Step 4: Your Plan -->
+                <div class="form-step" id="step4">
+                    <div class="step-content">
+                        <div class="plan-header">
+                            <div>
+                                <h2 class="step-title">Your Personalized Investment Plan</h2>
+                                <p class="step-subtitle">AI-generated recommendations based on your profile</p>
+                            </div>
+                            <button class="btn-secondary" onclick="goToStep(1)">← Edit Profile</button>
+                        </div>
+
+                        <div id="investmentPlanContent">
+                            <!-- AI-generated plan will be inserted here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Scripts -->
+    <script src="../core/config.js"></script>
+    <script src="../core/utils.js"></script>
+    <script src="../core/navigation.js"></script>
+    <script src="../core/market-api.js"></script>
+    <script src="../core/api.js"></script>
+    <script src="../home/navbar.js"></script>
+    <script src="financial-planning.js"></script>
+</body>
+
+</html>
